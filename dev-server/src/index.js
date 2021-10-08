@@ -12,6 +12,14 @@ import JsonViewer from './../../src/js/index';
 //render 2 different examples of the react-json-view component
 ReactDom.render(
     <div>
+        <JsonViewer
+            src={getExampleJsonPl()}
+            plBuildUrlCb={(name, hash, shard) => {
+                return <a href='toto' target='__blank'>plop</a>;
+            }}
+        />
+
+        <br />
         {/* just pass in your JSON to the src attribute */}
         <JsonViewer
             sortKeys
@@ -175,6 +183,33 @@ ReactDom.render(
 /*-------------------------------------------------------------------------*/
 /*     the following functions just contain test json data for display     */
 /*-------------------------------------------------------------------------*/
+
+
+// Our example with data-factory url
+function getExampleJsonPl() {
+    return {
+        "subWorkflowId": "1a394017-220d-4419-a350-631a267dbbaa",
+        "file": {
+            "url": "https://app.dev.product-live.com/data-factory/5f4627d58ff61cad6dc6d9ca/download/85161d9766cb3c41cccb38f3c2e7fdcd8b748bb35cda2c5b9f8c3d9538dbfa28/input-last.csv",
+            "hash": "85161d9766cb3c41cccb38f3c2e7fdcd8b748bb35cda2c5b9f8c3d9538dbfa28",
+            "filename": "input-last.csv"
+        },
+        "allFilesRecovered": "YES",
+        "files": [
+            {
+                "url": "https://app.dev.product-live.com/data-factory/5f4627d58ff61cad6dc6d9ca/download/85161d9766cb3c41cccb38f3c2e7fdcd8b748bb35cda2c5b9f8c3d9538dbfa28/input-last.csv",
+                "hash": "85161d9766cb3c41cccb38f3c2e7fdcd8b748bb35cda2c5b9f8c3d9538dbfa28",
+                "filename": "input-last.csv"
+            }
+        ],
+        "listing": {
+            "url": "https://app.dev.product-live.com/data-factory/5f4627d58ff61cad6dc6d9ca/download/590da6c84aec6ea82e8ba4772809f04a58e441352f04bfb809ed1fda34faae8b/listing-2021-10-08-13-00-01.xml",
+            "hash": "590da6c84aec6ea82e8ba4772809f04a58e441352f04bfb809ed1fda34faae8b",
+            "filename": "listing-2021-10-08-13-00-01.xml"
+        },
+        "noFile": "NO"
+    };
+}
 
 //just a function to get an example JSON object
 function getExampleJson1() {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 export interface ReactJsonViewProps {
   /**
@@ -141,6 +141,7 @@ export interface ReactJsonViewProps {
    * Default: null
    */
   defaultValue?: TypeDefaultValue | TypeDefaultValue[] | null;
+  plBuildUrlCb?: (name: string, hash: string, shard: string) => ReactNode;
 }
 
 export interface OnCopyProps {
