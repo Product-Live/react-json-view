@@ -38,7 +38,6 @@ export default class extends React.PureComponent {
     };
 
     render() {
-        console.log('on string render');
         const type_name = 'string';
         const { collapsed } = this.state;
         const { props } = this;
@@ -52,7 +51,6 @@ export default class extends React.PureComponent {
             'global',
             'stringValueAddonCallback'
         );
-        console.log('value', value, stringValueAddonCallback);
         const addonValue = stringValueAddonCallback && stringValueAddonCallback(value, Theme(theme, 'copy-icon'));
         if (collapsible && value.length > collapseStringsAfterLength) {
             style.style.cursor = 'pointer';
