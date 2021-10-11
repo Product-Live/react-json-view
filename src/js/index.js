@@ -29,6 +29,7 @@ class ReactJsonView extends React.PureComponent {
             prevTheme: ReactJsonView.defaultProps.theme,
             stringValueAddonCallback: props.stringValueAddonCallback || ReactJsonView.defaultProps.stringValueAddonCallback
         };
+        ObjectAttributes.set(this.rjvId, 'global', 'stringValueAddonCallback', this.state.stringValueAddonCallback);
     }
 
     //reference id for this instance
@@ -86,7 +87,6 @@ class ReactJsonView extends React.PureComponent {
     componentDidMount() {
         // initialize
         ObjectAttributes.set(this.rjvId, 'global', 'src', this.state.src);
-        ObjectAttributes.set(this.rjvId, 'global', 'stringValueAddonCallback', this.state.stringValueAddonCallback);
         // bind to events
         const listeners = this.getListeners();
         for (const i in listeners) {
