@@ -1,6 +1,9 @@
 ![alt text](https://github.com/mac-s-g/react-json-view/blob/master/doc/rjv-icon-alt.png?raw=true)
 
-[![npm](https://img.shields.io/npm/v/react-json-view.svg)](https://www.npmjs.com/package/react-json-view) [![npm](https://img.shields.io/npm/l/react-json-view.svg)](https://github.com/mac-s-g/react-json-view/blob/master/LISCENSE) [![Build Status](https://travis-ci.org/mac-s-g/react-json-view.svg)](https://travis-ci.org/mac-s-g/react-json-view) [![Coverage Status](https://coveralls.io/repos/github/mac-s-g/react-json-view/badge.svg?branch=master)](https://coveralls.io/github/mac-s-g/react-json-view?branch=master)
+# Product Live fork of react-json-view
+
+Addition of a string value callback to a json prettier in order to detect if the string value is a pl file link.
+Used by @product-live/productlivefront-v3.
 
 # react-json-view
 RJV is a React component for displaying and editing javascript **arrays** and **JSON objects**.
@@ -13,7 +16,7 @@ This component provides a responsive interface for displaying arrays or JSON in 
 ### Implementation Example
 ```js
 // import the react-json-view component
-import ReactJson from 'react-json-view'
+import ReactJson from '@product-live/react-json-view'
 
 // use the component in your app!
 <ReactJson src={my_json_object} />

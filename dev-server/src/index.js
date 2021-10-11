@@ -14,7 +14,7 @@ ReactDom.render(
     <div>
         <JsonViewer
             src={getExampleJsonPl()}
-            plBuildUrlCb={(name, hash, shard) => {
+            stringValueAddonCallback={(value, theme) => {
                 return <a href='toto' target='__blank'>plop</a>;
             }}
         />

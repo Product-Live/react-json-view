@@ -27,7 +27,7 @@ class ReactJsonView extends React.PureComponent {
             prevSrc: ReactJsonView.defaultProps.src,
             prevName: ReactJsonView.defaultProps.name,
             prevTheme: ReactJsonView.defaultProps.theme,
-            plBuildUrlCb: props.plBuildUrlCb || ReactJsonView.defaultProps.plBuildUrlCb
+            stringValueAddonCallback: props.stringValueAddonCallback || ReactJsonView.defaultProps.stringValueAddonCallback
         };
     }
 
@@ -39,7 +39,7 @@ class ReactJsonView extends React.PureComponent {
         src: {},
         name: 'root',
         theme: 'rjv-default',
-        plBuildUrlCb: null,
+        stringValueAddonCallback: null,
         collapsed: false,
         collapseStringsAfterLength: false,
         shouldCollapse: false,
@@ -86,7 +86,7 @@ class ReactJsonView extends React.PureComponent {
     componentDidMount() {
         // initialize
         ObjectAttributes.set(this.rjvId, 'global', 'src', this.state.src);
-        ObjectAttributes.set(this.rjvId, 'global', 'plBuildUrlCb', this.state.plBuildUrlCb);
+        ObjectAttributes.set(this.rjvId, 'global', 'stringValueAddonCallback', this.state.stringValueAddonCallback);
         // bind to events
         const listeners = this.getListeners();
         for (const i in listeners) {

@@ -141,7 +141,7 @@ export interface ReactJsonViewProps {
    * Default: null
    */
   defaultValue?: TypeDefaultValue | TypeDefaultValue[] | null;
-  plBuildUrlCb?: (name: string, hash: string, shard: string) => ReactNode;
+  stringValueAddonCallback?: (value: string, theme: { color: string, fontSize: string }) => ReactNode;
 }
 
 export interface OnCopyProps {

@@ -37,30 +37,6 @@ export default class extends React.PureComponent {
         );
     };
 
-    getPlLink = (value) => {
-        if (!value.match(/(http.*data-factory\/.*\/download\/.*\/.*)/)) {
-            return;
-        }
-        const plCb = AttributeStore.get(
-            this.props.rjvId,
-            'global',
-            'plBuildUrlCb'
-        );
-        if (!plCb) {
-            console.warn('pl url detected, add plBuildUrlCb to react-json-view to transform it. (name: string, hash: string; shard: string) => ReactNode');
-            return;
-        }
-        const matches = /.*data-factory\/(.*)\/download\/(.*)\/(.*)/g.exec(value);
-        let link = '';
-        if (matches) {
-            const shard = matches[1];
-            const hash = matches[2];
-            const name = matches[3];
-            link = plCb(name, hash, shard);
-        }
-        return link;
-    };
-
     render() {
         const type_name = 'string';
         const { collapsed } = this.state;
@@ -70,7 +46,12 @@ export default class extends React.PureComponent {
         let collapsible = toType(collapseStringsAfterLength) === 'integer';
         let style = { style: { cursor: 'default' } };
 
-        const plLink = this.getPlLink(value);
+        const stringValueAddonCallback = AttributeStore.get(
+            this.props.rjvId,
+            'global',
+            'stringValueAddonCallback'
+        );
+        const addonValue = stringValueAddonCallback && stringValueAddonCallback(value, Theme(theme, 'copy-icon'));
         if (collapsible && value.length > collapseStringsAfterLength) {
             style.style.cursor = 'pointer';
             if (this.state.collapsed) {
@@ -93,7 +74,7 @@ export default class extends React.PureComponent {
                 >
                     "{value}"
                 </span>
-                {plLink}
+                {addonValue}
             </div>
         );
     }
